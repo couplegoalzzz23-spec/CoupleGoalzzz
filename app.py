@@ -8,11 +8,11 @@ from streamlit_folium import st_folium
 import folium
 import plotly.graph_objects as go
 
-st.set_page_config(page_title="Cuaca Perjalanan", layout="wide")
+st.set_page_config(page_title="Cuaca Penerbangan", layout="wide")
 
 # Judul
 st.markdown("<h1 style='font-size:36px;'>🌤️ Cuaca Penerbangan</h1>", unsafe_allow_html=True)
-st.markdown("<p style='font-size:18px; color:gray;'><em>Editor: Ferri Kusuma (M8TB_14.22.0003)</em></p>", unsafe_allow_html=True)
+st.markdown("<p style='font-size:18px; color:gray;'><em>Editor: Resti  Maulina C.C (M6C_11.22.0089)</em></p>", unsafe_allow_html=True)
 st.markdown("<p style='font-size:17px;'>Lihat prakiraan suhu, hujan, awan, kelembapan, dan angin setiap jam untuk lokasi dan tanggal yang kamu pilih.</p>", unsafe_allow_html=True)
 
 # Input
@@ -190,6 +190,7 @@ if lat and lon and tanggal:
 
     else:
         st.error("❌ Data cuaca tidak tersedia.")
+
 
 
 
