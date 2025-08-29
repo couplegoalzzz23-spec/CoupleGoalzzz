@@ -11,7 +11,7 @@ import plotly.graph_objects as go
 st.set_page_config(page_title="Cuaca Perjalanan", layout="wide")
 
 # Judul
-st.markdown("<h1 style='font-size:36px;'>🌤️ Cuaca Perjalanan</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='font-size:36px;'>🌤️ Cuaca Penerbangan</h1>", unsafe_allow_html=True)
 st.markdown("<p style='font-size:18px; color:gray;'><em>Editor: Ferri Kusuma (M8TB_14.22.0003)</em></p>", unsafe_allow_html=True)
 st.markdown("<p style='font-size:17px;'>Lihat prakiraan suhu, hujan, awan, kelembapan, dan angin setiap jam untuk lokasi dan tanggal yang kamu pilih.</p>", unsafe_allow_html=True)
 
@@ -20,14 +20,14 @@ col1, col2 = st.columns([2, 1])
 with col1:
     kota = st.text_input("📝 Masukkan nama kota (opsional):")
 with col2:
-    tanggal = st.date_input("📅 Pilih tanggal perjalanan:", value=date.today(), min_value=date.today())
+    tanggal = st.date_input("📅 Pilih tanggal penerbangan:", value=date.today(), min_value=date.today())
 
 # Fungsi koordinat: API + fallback lokal
 @st.cache_data(show_spinner=False)
 def get_coordinates(nama_kota):
     try:
         url = f"https://nominatim.openstreetmap.org/search?q={nama_kota}&format=json&limit=1"
-        headers = {"User-Agent": "cuaca-perjalanan-app"}
+        headers = {"User-Agent": "cuaca-penerbangan-app"}
         r = requests.get(url, headers=headers, timeout=10)
         r.raise_for_status()
         hasil = r.json()
@@ -190,5 +190,6 @@ if lat and lon and tanggal:
 
     else:
         st.error("❌ Data cuaca tidak tersedia.")
+
 
 
